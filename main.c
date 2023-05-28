@@ -3,6 +3,16 @@
 int main(int argc, char *argv[])
 {
 
+	instruction_t instructions[] = {
+                {"push", push},
+                {"pall", pall},
+                {NULL, NULL}};
+
+	FILE *file;
+	int value;
+	unsigned int line_number = 0;
+	char buffer[BUFFER_SIZE];
+
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -11,30 +21,19 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	FILE *file;
         file = fopen(argv[1], "r");
+
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	char buffer[BUFFER_SIZE];
-	unsigned int line_number = 0;
-	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}};
-
 	while (fgets(buffer, BUFFER_SIZE, file))
 	{
+		char *opcode;
 		line_number++;
-		char *opcode = strtok(buffer, " \t\n");
+	        opcode = strtok(buffer, " \t\n");
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
@@ -48,7 +47,7 @@ int main(int argc, char *argv[])
 
 			}
 
-			int value = atoi(arg);
+			value = atoi(arg);
 			push(&stack, value);
 
        		}
