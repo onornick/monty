@@ -1,11 +1,11 @@
 #include "monty.h"
 
-/* Function: pop
+/**
+ * pop - removes the top element of the stack.
  * ---------------------
- * The pop opcode removes the top element of the stack.
- *
- * stack: Double pointer to the top of the stack
- * line_number: Line number in the file
+ * Description: The pop opcode removes the top element of the stack.
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number in the file
  */
 
 void pop(stack_t **stack, unsigned int line_number)
@@ -25,18 +25,19 @@ void pop(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
-/* Function: push
+/**
+ * push - pushes an element to the stack
  * ---------------------
- * The push opcode pushes an element to the stack.
- *
- * stack: Double pointer to the top of the stack
- * n: Integer value to push
- * line_number: Line number in the file
+ * Description: pushes an element to the stack
+ * push - pushes an element to the stack
+ * @stack: Double pointer to the top of the stack
+ * @n: Integer value to push
  */
 
 void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -53,12 +54,13 @@ void push(stack_t **stack, unsigned int n)
 	*stack = new_node;
 }
 
-/* Function: pall
+/**
+ * pall - print all values
+ * Description: opcode prints all the values on the stack
  * ---------------------
  * The pall opcode prints all the values on the stack, starting from the top.
- *
- * stack: Double pointer to the top of the stack
- * line_number: Line number in the file
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number in the file
  */
 
 void pall(stack_t **stack, unsigned int line_number)
@@ -73,12 +75,11 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
-/* Function: pint
- * ---------------------
- * The pint opcode prints the value at the top of the stack.
- *
- * stack: Double pointer to the top of the stack
- * line_number: Line number in the file
+/**
+ * pint - opcode prints the value at the top of the stack.
+ * Descripton: opcode prints the value at the top of the stack.
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number in the file
  */
 
 void pint(stack_t **stack, unsigned int line_number)
@@ -92,12 +93,11 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
-/* Function: swap
- * ---------------------
- * The swap opcode swaps the top two elements of the stack.
- *
- * stack: Double pointer to the top of the stack
- * line_number: Line number in the file
+/**
+ * swap - opcode swaps the top two elements of the stack.
+ * Description: opcode swaps the top two elements of the stack
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number in the file
  */
 
 void swap(stack_t **stack, unsigned int line_number)
