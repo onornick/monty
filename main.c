@@ -10,6 +10,18 @@
  *
  */
 
+instruction_t instruction[] = {
+                {"pop", pop},
+                {"pall", pall},
+                {"pint", pint},
+                {"swap", swap},
+                {"push", push},
+                {"add", add},
+                {"nop", nop},
+                {NULL, NULL}
+        };
+
+
 int main(int argc, char *argv[])
 {
 	FILE *file;
