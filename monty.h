@@ -40,6 +40,18 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+instruction_t instruction[] = {
+                {"pop", pop},
+                {"pall", pall},
+                {"pint", pint},
+                {"swap", swap},
+                {"push", push},
+                {"add", add},
+                {"nop", nop},
+                {NULL, NULL}
+        };
+
+void free_stack(stack_t **stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
