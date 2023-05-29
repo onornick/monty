@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 
 	}
 
-	free(&stack);
+	free(stack);
 	fclose(file);
 	return 0;
 }
