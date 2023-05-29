@@ -65,7 +65,6 @@ int main(int argc, char *argv[])
 	}
 
 	fclose(file);
-	 // Free the stack
     	while (stack != NULL)
 	{
 		stack_t *current = stack;
