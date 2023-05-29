@@ -64,7 +64,14 @@ int main(int argc, char *argv[])
 
 	}
 
-	free(stack);
 	fclose(file);
+	 // Free the stack
+    	while (stack != NULL)
+	{
+		stack_t *current = stack;
+		stack = stack->next;
+		free(current);
+	}
+
 	return 0;
 }
