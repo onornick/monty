@@ -39,7 +39,11 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
+void subtraction(stack_t **stack, unsigned int line_number);
+void division(stack_t **stack, unsigned int line_number);
+void multiplication(stack_t **stack, unsigned int line_number);
+void modulus(stack_t **stack, unsigned int line_number);
+void multiplication(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);

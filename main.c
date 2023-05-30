@@ -18,6 +18,10 @@ instruction_t instruction[] = {
                 {"push", push},
                 {"add", add},
                 {"nop", nop},
+                {"sub", subtraction},
+                {"div", division},
+                {"mul", multiplication},
+                {"mod", modulus},
                 {NULL, NULL}
         };
 
